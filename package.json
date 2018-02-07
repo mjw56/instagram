@@ -1,0 +1,36 @@
+{
+  "name": "instagram",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mjw56",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "got": "^8.0.2",
+    "inferno": "^4.0.0-12",
+    "inferno-create-element": "^4.0.0-12",
+    "inferno-server": "^4.0.0-12",
+    "passport": "^0.4.0",
+    "passport-instagram": "^1.0.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.37",
+    "babel-plugin-external-helpers": "^7.0.0-beta.3",
+    "babel-plugin-inferno": "^4.0.0-29",
+    "babel-preset-env": "^7.0.0-beta.3",
+    "ejs": "^2.5.7",
+    "rollup": "^0.54.0",
+    "rollup-plugin-babel": "^4.0.0-beta.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "typescript": "^2.6.2"
+  },
+  "scripts": {
+    "build": "node build.js"
+  }
+}
