@@ -320,7 +320,7 @@ babel-plugin-external-helpers@^7.0.0-beta.3:
   version "7.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-external-helpers/-/babel-plugin-external-helpers-7.0.0-beta.3.tgz#5518ac58066060df46e2580b6352d00a2b527ee6"
 
-babel-plugin-inferno@^4.0.0-29:
+babel-plugin-inferno@^4.0.0-30:
   version "4.0.0-30"
   resolved "https://registry.yarnpkg.com/babel-plugin-inferno/-/babel-plugin-inferno-4.0.0-30.tgz#ed964f2477a16a2359d6a7d94b57a1f57e8f64fc"
   dependencies:
@@ -1175,45 +1175,23 @@ iconv-lite@0.4.19:
   version "0.4.19"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.19.tgz#f7468f60135f5e5dad3399c0a81be9a1603a082b"
 
-inferno-component@4.0.0-alpha1-alpha.d24e2d51:
-  version "4.0.0-alpha1-alpha.d24e2d51"
-  resolved "https://registry.yarnpkg.com/inferno-component/-/inferno-component-4.0.0-alpha1-alpha.d24e2d51.tgz#632249f33d70aadfd5271b132aa0923dafb57562"
+inferno-create-element@^4.0.0-19:
+  version "4.0.0-19"
+  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-4.0.0-19.tgz#7dd4cda5dc5c203f8031a74260809de7aa4102ab"
+
+inferno-server@^4.0.0-19:
+  version "4.0.0-19"
+  resolved "https://registry.yarnpkg.com/inferno-server/-/inferno-server-4.0.0-19.tgz#e11807fc4865633418f6f6976115d84dd05ff678"
+
+inferno-vnode-flags@4.0.0-19:
+  version "4.0.0-19"
+  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-4.0.0-19.tgz#b81c3613e4cd32b30eb1cf0036c784647802a783"
+
+inferno@^4.0.0-19:
+  version "4.0.0-19"
+  resolved "https://registry.yarnpkg.com/inferno/-/inferno-4.0.0-19.tgz#087596819d186d4e436efcaec453c147796afab7"
   dependencies:
-    inferno "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-shared "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-vnode-flags "4.0.0-alpha1-alpha.d24e2d51"
-
-inferno-create-element@^4.0.0-12:
-  version "4.0.0-alpha1-alpha.d24e2d51"
-  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-4.0.0-alpha1-alpha.d24e2d51.tgz#5afa78068dc466a804d5f71e5a4ab56485b0eaa7"
-  dependencies:
-    inferno "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-component "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-shared "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-vnode-flags "4.0.0-alpha1-alpha.d24e2d51"
-
-inferno-server@^4.0.0-12:
-  version "4.0.0-alpha1-alpha.d24e2d51"
-  resolved "https://registry.yarnpkg.com/inferno-server/-/inferno-server-4.0.0-alpha1-alpha.d24e2d51.tgz#85437a4c7de0642e3f3c117c96bd583c289a8cc9"
-  dependencies:
-    inferno "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-shared "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-vnode-flags "4.0.0-alpha1-alpha.d24e2d51"
-
-inferno-shared@4.0.0-alpha1-alpha.d24e2d51:
-  version "4.0.0-alpha1-alpha.d24e2d51"
-  resolved "https://registry.yarnpkg.com/inferno-shared/-/inferno-shared-4.0.0-alpha1-alpha.d24e2d51.tgz#bc28a315821d5b5c30b87100919bc381ec5cc79d"
-
-inferno-vnode-flags@4.0.0-alpha1-alpha.d24e2d51:
-  version "4.0.0-alpha1-alpha.d24e2d51"
-  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-4.0.0-alpha1-alpha.d24e2d51.tgz#3dcc26747641f4aaee331251b3cbaef2d2390c07"
-
-inferno@4.0.0-alpha1-alpha.d24e2d51, inferno@^4.0.0-12:
-  version "4.0.0-alpha1-alpha.d24e2d51"
-  resolved "https://registry.yarnpkg.com/inferno/-/inferno-4.0.0-alpha1-alpha.d24e2d51.tgz#791e64b826ce7504508e95815ea8d4539cef91f8"
-  dependencies:
-    inferno-shared "4.0.0-alpha1-alpha.d24e2d51"
-    inferno-vnode-flags "4.0.0-alpha1-alpha.d24e2d51"
+    inferno-vnode-flags "4.0.0-19"
 
 inherits@2.0.3, inherits@^2.0.1, inherits@~2.0.3:
   version "2.0.3"
