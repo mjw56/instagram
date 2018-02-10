@@ -1,8 +1,10 @@
 import { render } from 'inferno';
 
+import './style.scss';
+
 export default function PhotoGrid({ data = [] }) {
   return (
-    <ul style={{ display: 'grid', gridTemplateColumns: '33% 33% 33%', margin: 0, padding: 0 }}>
+    <ul className="photo-grid">
         { data.map((item, i) => {
             const image = item.images.standard_resolution;
 
