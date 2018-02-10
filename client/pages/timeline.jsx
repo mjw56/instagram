@@ -1,3 +1,5 @@
+import { render } from 'inferno';
+
 function App({ data = [] }) {
   return (
     <div>
