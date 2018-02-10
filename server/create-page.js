@@ -11,21 +11,19 @@ function renderPage(page, data) {
     );
 }
 
-async function timeline(req, res) {
+async function home({ userId, accessToken }) {
     let timeline;
 
     if (!cached.timeline) {
-        timeline = await getTimeline(req.user.profile.id, req.user.accessToken);
+        timeline = await getTimeline(userId, accessToken);
         cached.timeline = timeline;
     } else {
         timeline = cached.timeline;
     }
 
-    const string = renderPage(require('../build/pages/timeline'), { data: timeline.data });
-
-    res.send(string);
+    return renderPage(require('../build/pages/timeline'), { data: timeline.data });
 }
 
 module.exports = {
-    timeline
+    home
 }
