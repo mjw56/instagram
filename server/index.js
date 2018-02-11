@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
@@ -15,7 +16,7 @@ passport.use(require('./services/instagram/strategy'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(session({ secret: 'keyboard cat' }));
 app.use(passport.initialize());
