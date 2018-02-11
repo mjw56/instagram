@@ -7,7 +7,7 @@ export default function Document({ children, ...props }) {
         <html>
             <head>
                 <title>{props.title}</title>
-                <link rel="stylesheet" href="/bundle.css" />
+                <link rel="stylesheet" href={`/${props.stylesheet}.css`} />
             </head>
 
             <body>
