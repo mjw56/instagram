@@ -363,9 +363,9 @@ babel-plugin-external-helpers@^7.0.0-beta.3:
   version "7.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/babel-plugin-external-helpers/-/babel-plugin-external-helpers-7.0.0-beta.3.tgz#5518ac58066060df46e2580b6352d00a2b527ee6"
 
-babel-plugin-inferno@^4.0.0-30:
-  version "4.0.0-30"
-  resolved "https://registry.yarnpkg.com/babel-plugin-inferno/-/babel-plugin-inferno-4.0.0-30.tgz#ed964f2477a16a2359d6a7d94b57a1f57e8f64fc"
+babel-plugin-inferno@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-inferno/-/babel-plugin-inferno-4.0.0.tgz#065a4d4fedd59ff85a37ffb665e1d2119186ac8f"
   dependencies:
     babel-plugin-syntax-jsx "^6.18.0"
 
