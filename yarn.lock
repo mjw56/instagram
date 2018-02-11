@@ -68,6 +68,16 @@
     "@babel/traverse" "7.0.0-beta.39"
     "@babel/types" "7.0.0-beta.39"
 
+"@babel/plugin-proposal-object-rest-spread@^7.0.0-beta.39":
+  version "7.0.0-beta.39"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.0.0-beta.39.tgz#ea4d6ea974a364028e5074b1abe6505924d179a3"
+  dependencies:
+    "@babel/plugin-syntax-object-rest-spread" "7.0.0-beta.39"
+
+"@babel/plugin-syntax-object-rest-spread@7.0.0-beta.39":
+  version "7.0.0-beta.39"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-object-rest-spread/-/plugin-syntax-object-rest-spread-7.0.0-beta.39.tgz#f19f0761ccebf1d579197705e2efda36e1a45545"
+
 "@babel/template@7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.0.0-beta.39.tgz#98bd7b132d99f73547c473f2862f481ae84981c9"

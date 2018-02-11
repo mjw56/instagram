@@ -24,7 +24,7 @@ const plugins = [
     }),
     babel({
         exclude: 'node_modules/**',
-        plugins: ['inferno'],
+        plugins: ['inferno', '@babel/plugin-proposal-object-rest-spread'],
     })
   ]
 
