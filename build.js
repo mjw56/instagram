@@ -1,13 +1,22 @@
 const rollup = require('rollup');
 const nodeResolve = require('rollup-plugin-node-resolve');
+const includePaths = require('rollup-plugin-includepaths');
 const babel = require('rollup-plugin-babel');
 const scss = require('rollup-plugin-scss');
 const { writeFileSync } = require('fs');
+
+let includePathOptions = {
+  include: {},
+  paths: ['client'],
+  external: [],
+  extensions: ['.js', '.jsx']
+};
 
 const plugins = [
     nodeResolve({
       extensions: [ '.js', '.jsx' ]
     }),
+    includePaths(includePathOptions),
     scss({
       output: function (styles, styleNodes) {
         writeFileSync('build/bundle.css', styles)
