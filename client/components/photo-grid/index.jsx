@@ -10,7 +10,7 @@ export default function PhotoGrid({ data = [] }) {
 
             return image ? (
             <div key={i}>
-                <img src={image.url} />
+                <div className="ratio-4-3" style={{ backgroundImage: `url(${image.url})` }} />
             </div>
             ) : null
         })}

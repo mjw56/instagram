@@ -1,6 +1,22 @@
 .photo-grid {
     display: grid;
     grid-template-columns: 33% 33% 33%;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
     margin: 0;
     padding: 0;
 }
+
+.ratio-4-3{
+    width:100%;
+    position:relative;
+    background:url() 50% 50% no-repeat;
+    background-size:cover;
+    background-clip:content-box;
+
+    &:before {
+        display:block;
+        content:"";
+        padding-top:75%;
+    }
+  }
