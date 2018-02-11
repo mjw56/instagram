@@ -19,7 +19,7 @@ const plugins = [
     includePaths(includePathOptions),
     scss({
       output: function (styles, styleNodes) {
-        writeFileSync('build/bundle.css', styles)
+        writeFileSync('public/bundle.css', styles)
       },
     }),
     babel({

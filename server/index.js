@@ -15,6 +15,8 @@ passport.use(require('./services/instagram/strategy'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.use(express.static('public'))
+
 app.use(session({ secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
