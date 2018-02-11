@@ -1464,23 +1464,23 @@ indent-string@^2.1.0:
   dependencies:
     repeating "^2.0.0"
 
-inferno-create-element@^4.0.0-19:
-  version "4.0.0-19"
-  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-4.0.0-19.tgz#7dd4cda5dc5c203f8031a74260809de7aa4102ab"
+inferno-create-element@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/inferno-create-element/-/inferno-create-element-4.0.0.tgz#f43848ce1b5791bdb7ebedd8495e476b16f38923"
 
-inferno-server@^4.0.0-19:
-  version "4.0.0-19"
-  resolved "https://registry.yarnpkg.com/inferno-server/-/inferno-server-4.0.0-19.tgz#e11807fc4865633418f6f6976115d84dd05ff678"
+inferno-server@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/inferno-server/-/inferno-server-4.0.0.tgz#2284e5654546af6a0a99a0974999043bb241f214"
 
-inferno-vnode-flags@4.0.0-19:
-  version "4.0.0-19"
-  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-4.0.0-19.tgz#b81c3613e4cd32b30eb1cf0036c784647802a783"
+inferno-vnode-flags@4.0.0-21:
+  version "4.0.0-21"
+  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-4.0.0-21.tgz#1d5d8bb54b54b7e4a66d383808915674a66e7fad"
 
-inferno@^4.0.0-19:
-  version "4.0.0-19"
-  resolved "https://registry.yarnpkg.com/inferno/-/inferno-4.0.0-19.tgz#087596819d186d4e436efcaec453c147796afab7"
+inferno@^4.0.0-21:
+  version "4.0.0-21"
+  resolved "https://registry.yarnpkg.com/inferno/-/inferno-4.0.0-21.tgz#8b96a39af78c86fd1d130df14b63050d3f6fca72"
   dependencies:
-    inferno-vnode-flags "4.0.0-19"
+    inferno-vnode-flags "4.0.0-21"
 
 inflight@^1.0.4:
   version "1.0.6"
