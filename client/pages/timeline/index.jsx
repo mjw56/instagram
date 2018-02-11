@@ -1,5 +1,5 @@
 import { render } from 'inferno';
-import PhotoGrid from '../../components/photo-grid/photo-grid.jsx';
+import PhotoGrid from '../../components/photo-grid';
 
 import './style.scss';
 

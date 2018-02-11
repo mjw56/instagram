@@ -1,9 +1,13 @@
 const rollup = require('rollup');
+const nodeResolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
 const scss = require('rollup-plugin-scss');
 const { writeFileSync } = require('fs');
 
 const plugins = [
+    nodeResolve({
+      extensions: [ '.js', '.jsx' ]
+    }),
     scss({
       output: function (styles, styleNodes) {
         writeFileSync('build/bundle.css', styles)
@@ -16,7 +20,7 @@ const plugins = [
   ]
 
 rollup.rollup({
-    input: 'client/pages/timeline/timeline.jsx',
+    input: 'client/pages/timeline/index.jsx',
     plugins
   }).then(bundle => {
     bundle.write({
