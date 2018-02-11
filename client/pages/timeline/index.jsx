@@ -6,7 +6,7 @@ import './style.scss';
 
 export default function Timeline({ data = [] }) {
   return (
-    <Document>
+    <Document title="Home">
       <div className="timeline">
         <PhotoGrid data={data} />
       </div>
