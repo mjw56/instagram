@@ -4,6 +4,7 @@ const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const routes = require('./routes');
+require('dotenv').config();
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -18,7 +19,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.use(session({ secret: 'keyboard cat' }));
+app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -29,4 +30,4 @@ app.get('/logout', routes.logout);
 app.get('/auth/instagram', passport.authenticate('instagram-token'), routes.instagram.token);
 app.get('/auth/instagram/callback', routes.instagram.callback);
 
-app.listen(3000, () => console.log('app listening on port 3000'));
+app.listen(process.env.PORT, () => console.log('app listening on port 3000'));
