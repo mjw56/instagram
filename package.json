@@ -10,6 +10,7 @@
     "express-session": "^1.15.6",
     "form-data": "^2.3.1",
     "got": "^8.0.2",
+    "graphql": "^0.13.0",
     "inferno": "^4.0.2",
     "inferno-create-element": "^4.0.2",
     "inferno-server": "^4.0.2",
