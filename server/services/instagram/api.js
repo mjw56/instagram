@@ -2,10 +2,12 @@ const got = require('got');
 const r2 = require('r2');
 const FormData = require('form-data');
 
-async function getTimeline(id, accessToken) {
+async function getTimeline(accessToken) {
     try {
-        const timeline = await got(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`);    
-        return JSON.parse(timeline.body);
+        const timeline = await got(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${accessToken}`);
+
+        const body = JSON.parse(timeline.body);
+        return body;
     } catch (error) {
         console.log(error.response.body);
     }

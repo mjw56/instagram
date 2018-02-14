@@ -4,7 +4,17 @@ const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const routes = require('./routes');
+
+const graphqlHTTP = require('express-graphql');
+const schema = require('../shared/graphql');
+
 require('dotenv').config();
+
+const setCorsHeaders = (res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Accept, Content-Type, Authorization, Content-Length, X-Requested-With');
+};
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -29,5 +39,21 @@ app.get('/logout', routes.logout);
 
 app.get('/auth/instagram', passport.authenticate('instagram-token'), routes.instagram.token);
 app.get('/auth/instagram/callback', routes.instagram.callback);
+
+app.get('/graphql', (req, res) => {
+    console.log('yo', req.user);
+    return graphqlHTTP({
+        schema,
+        graphiql: true,
+    })(req, res)
+});
+
+app.post('/graphql', (req, res) => {
+    setCorsHeaders(res);
+    setTimeout(() => graphqlHTTP({
+      schema,
+      graphiql: false,
+    })(req, res), 500);
+  });
 
 app.listen(process.env.PORT, () => console.log('app listening on port 3000'));

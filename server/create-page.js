@@ -15,7 +15,7 @@ async function home({ userId, accessToken }) {
     let timeline;
 
     if (!cached.timeline) {
-        timeline = await getTimeline(userId, accessToken);
+        timeline = await getTimeline(accessToken);
         cached.timeline = timeline;
     } else {
         timeline = cached.timeline;
