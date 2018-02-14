@@ -99,18 +99,25 @@ const {
       users_in_photo: { type: GraphQLList(UserType) }
     })
   });
+
+  const MediaTypeList = new GraphQLObjectType({
+    name: 'MediaList',
+    description: 'List of Media',
+    fields: () => ({
+      data: { type: GraphQLList(MediaType) }
+    })
+  });
   
   const QueryType = new GraphQLObjectType({
     name: 'Query',
     description: 'Query Root',
     fields: () => ({
       media: {
-        type: MediaType,
+        type: MediaTypeList,
         args: {
-          id: { type: GraphQLString },
           token: { type: GraphQLString }
         },
-        resolve: async (root, args) => await getTimeline(args.id, args.token)
+        resolve: async (root, args) => await getTimeline(args.token)
       },
     }),
   });
