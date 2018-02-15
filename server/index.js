@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const morgan = require('morgan');
 const app = express();
 const passport = require('passport');
 const session = require('express-session');
@@ -32,6 +33,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(session({ secret: process.env.SESSION_SECRET }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(morgan('combined'));
 
 app.get('/', routes.utils.ensureAuthenticated, routes.home);
 app.get('/login', routes.login);
