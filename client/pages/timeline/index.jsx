@@ -13,3 +13,17 @@ export default function Timeline({ data = [] }) {
     </Document>
   );
 }
+
+Timeline.GraphQL = ({ accessToken }) => `
+  {
+    media(token: "${accessToken}") {
+      data {
+        images {
+          standard_resolution {
+            url
+          }
+        }
+      }
+    }
+  }
+`;
