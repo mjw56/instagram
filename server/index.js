@@ -41,7 +41,6 @@ app.get('/auth/instagram', passport.authenticate('instagram-token'), routes.inst
 app.get('/auth/instagram/callback', routes.instagram.callback);
 
 app.get('/graphql', (req, res) => {
-    console.log('yo', req.user);
     return graphqlHTTP({
         schema,
         graphiql: true,
@@ -51,9 +50,9 @@ app.get('/graphql', (req, res) => {
 app.post('/graphql', (req, res) => {
     setCorsHeaders(res);
     setTimeout(() => graphqlHTTP({
-      schema,
-      graphiql: false,
+        schema,
+        graphiql: false,
     })(req, res), 500);
-  });
+});
 
 app.listen(process.env.PORT, () => console.log('app listening on port 3000'));

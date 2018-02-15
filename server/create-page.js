@@ -3,6 +3,9 @@ const InfernoServer = require('inferno-server');
 const { createElement } = require('inferno-create-element');
 const { getTimeline } = require('./services/instagram/api');
 
+const schema = require('../shared/graphql');
+const { graphql } = require('graphql');
+
 let cached = {};
 
 function renderPage(page, data) {
@@ -11,17 +14,12 @@ function renderPage(page, data) {
     );
 }
 
-async function home({ userId, accessToken }) {
-    let timeline;
+async function home({ accessToken }) {
+    const TimelineComponent = require('../build/pages/timeline');
 
-    if (!cached.timeline) {
-        timeline = await getTimeline(accessToken);
-        cached.timeline = timeline;
-    } else {
-        timeline = cached.timeline;
-    }
+    const { data: { media: { data }}} = await graphql(schema, TimelineComponent.GraphQL({ accessToken }));
 
-    return renderPage(require('../build/pages/timeline'), { data: timeline.data });
+    return renderPage(TimelineComponent, { data });
 }
 
 module.exports = {
