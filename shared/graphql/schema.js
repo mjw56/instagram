@@ -7,7 +7,7 @@ const {
     GraphQLFloat
   } = require('graphql');
 
-  const { getTimeline } = require('../../server/services/instagram/api');
+  const { users: { mediaRecent }} = require('../../server/services/instagram/api');
 
   const UserType = new GraphQLObjectType({
     name: 'User',
@@ -17,7 +17,32 @@ const {
       id: { type: GraphQLString },
       profile_picture: { type: GraphQLString },
       username: { type: GraphQLString },
-    }),
+    })
+  });
+
+  const FullUserType = new GraphQLObjectType({
+    name: 'Full User',
+    description: 'Full Instagram User',
+    fields: () => ({
+      id: { type: GraphQLString },
+      username: { type: GraphQLString },
+      full_name: { type: GraphQLString },
+      profile_picture: { type: GrapQLString },
+      bio: { type: GraphQLString },
+      website: { type: GraphQLString },
+      is_business: { type: GraphQLBoolean },
+      counts: { type: CountsType }
+    })
+  });
+
+  const CountsType = new GraphQLObjectType({
+    name: 'Counts',
+    description: 'User Counts',
+    fields: () => ({
+      media: { type: GraphQLInt },
+      follows: { type: GraphQLInt },
+      followed_by: { type: GraphQLInt }
+    })
   });
 
   const ImageType = new GraphQLObjectType({
@@ -101,10 +126,48 @@ const {
   });
 
   const MediaTypeList = new GraphQLObjectType({
-    name: 'MediaList',
+    name: 'MediaTypeList',
     description: 'List of Media',
     fields: () => ({
       data: { type: GraphQLList(MediaType) }
+    })
+  });
+
+  const UsersEndpoint = new GraphQLObjectType({
+    name: 'UsersEndpoint',
+    description: 'Instagram Users Endpoint',
+    fields: () => ({
+      media: {
+        type: MediaTypeList,
+        args: {
+          token: { type: GraphQLString }
+        },
+        resolve: async (root, args) => await mediaRecent(args.token)
+      },
+    })
+  })
+
+  const RootType = new GraphQLObjectType({
+    name: 'RootType',
+    description: 'Instagram GraphQL API Root',   
+    fields: () => ({
+      media: {
+        type: MediaTypeList,
+        args: {
+          token: { type: GraphQLString }
+        },
+        resolve: async (root, args) => await mediaRecent(args.token)
+      },
+      // TODO
+      /*
+      users
+      relationships
+      media
+      comments
+      likes
+      tags
+      locations
+      */
     })
   });
   
@@ -117,10 +180,9 @@ const {
         args: {
           token: { type: GraphQLString }
         },
-        resolve: async (root, args) => await getTimeline(args.token)
+        resolve: async (root, args) => await mediaRecent(args.token)
       },
     }),
   });
-
 
 module.exports = QueryType;
