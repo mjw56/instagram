@@ -17,9 +17,9 @@ function renderPage(page, data) {
 async function home({ accessToken }) {
     const TimelineComponent = require('../build/pages/timeline');
 
-    const { data: { media: { data }}} = await graphql(schema, TimelineComponent.GraphQL({ accessToken }));
-
-    return renderPage(TimelineComponent, { data });
+    const { data: { root } } = await graphql(schema, TimelineComponent.GraphQL({ accessToken }));
+    
+    return renderPage(TimelineComponent, { data: root.users.media.data });
 }
 
 module.exports = {

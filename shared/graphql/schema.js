@@ -151,13 +151,12 @@ const {
     name: 'RootType',
     description: 'Instagram GraphQL API Root',   
     fields: () => ({
-      media: {
-        type: MediaTypeList,
-        args: {
-          token: { type: GraphQLString }
-        },
-        resolve: async (root, args) => await mediaRecent(args.token)
-      },
+      users: { 
+        type: UsersEndpoint,
+        resolve(source, params, root, ast) {
+          return true;
+        }
+      }
       // TODO
       /*
       users
@@ -168,21 +167,20 @@ const {
       tags
       locations
       */
-    })
+    }),
   });
   
   const QueryType = new GraphQLObjectType({
     name: 'Query',
     description: 'Query Root',
-    fields: () => ({
-      media: {
-        type: MediaTypeList,
-        args: {
-          token: { type: GraphQLString }
-        },
-        resolve: async (root, args) => await mediaRecent(args.token)
+    fields: {
+      root: { 
+        type: RootType,
+        resolve(source, params, root, ast) {
+          return true;
+        }
       },
-    }),
+    },
   });
 
 module.exports = QueryType;

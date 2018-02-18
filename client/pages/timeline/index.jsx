@@ -16,11 +16,15 @@ export default function Timeline({ data = [] }) {
 
 Timeline.GraphQL = ({ accessToken }) => `
   {
-    media(token: "${accessToken}") {
-      data {
-        images {
-          standard_resolution {
-            url
+    root {
+      users {
+        media(token: "${accessToken}") {
+          data {
+            images {
+              standard_resolution {
+                url
+              }
+            }
           }
         }
       }
