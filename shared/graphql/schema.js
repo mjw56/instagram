@@ -7,7 +7,7 @@ const {
     GraphQLFloat
   } = require('graphql');
 
-  const { users: { mediaRecent }} = require('../../server/services/instagram/api');
+  const { users: { self, mediaRecent }} = require('../../server/services/instagram/api');
 
   const UserType = new GraphQLObjectType({
     name: 'User',
@@ -21,13 +21,13 @@ const {
   });
 
   const FullUserType = new GraphQLObjectType({
-    name: 'Full User',
+    name: 'FullUserType',
     description: 'Full Instagram User',
     fields: () => ({
       id: { type: GraphQLString },
       username: { type: GraphQLString },
       full_name: { type: GraphQLString },
-      profile_picture: { type: GrapQLString },
+      profile_picture: { type: GraphQLString },
       bio: { type: GraphQLString },
       website: { type: GraphQLString },
       is_business: { type: GraphQLBoolean },
@@ -137,6 +137,13 @@ const {
     name: 'UsersEndpoint',
     description: 'Instagram Users Endpoint',
     fields: () => ({
+      self: {
+        type: FullUserType,
+        args: {
+          token: { type: GraphQLString }
+        },
+        resolve: async (root, args) => await self(args.token)
+      },
       media: {
         type: MediaTypeList,
         args: {
