@@ -21,3 +21,15 @@ export default function PhotoGrid({ data = [] }) {
     </ul>
   );
 }
+
+PhotoGrid.GraphQL = `
+    fragment photoGridFragment on MediaTypeList {
+        data {
+            images {
+                standard_resolution {
+                    url
+                }
+            }
+        }
+    }
+`;

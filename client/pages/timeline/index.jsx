@@ -15,31 +15,15 @@ export default function Timeline({ data = [] }) {
 }
 
 Timeline.GraphQL = ({ accessToken }) => `
-  {
+  query TimelinePage {
     root {
       users {
-        self(token: "${accessToken}") {
-          username,
-          full_name,
-          profile_picture,
-          bio,
-          website,
-          counts {
-            media,
-            follows,
-            followed_by
-          }
-        }
         media(token: "${accessToken}") {
-          data {
-            images {
-              standard_resolution {
-                url
-              }
-            }
-          }
+          ...photoGridFragment
         }
       }
     }
   }
+
+  ${PhotoGrid.GraphQL}
 `;
