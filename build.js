@@ -2,7 +2,8 @@ const rollup = require('rollup');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const includePaths = require('rollup-plugin-includepaths');
 const babel = require('rollup-plugin-babel');
-const scss = require('rollup-plugin-scss');
+const sass = require('rollup-plugin-sass');
+const copy = require('rollup-plugin-copy');
 const { writeFileSync } = require('fs');
 
 let includePathOptions = {
@@ -17,15 +18,19 @@ const plugins = [
       extensions: [ '.js', '.jsx' ]
     }),
     includePaths(includePathOptions),
-    scss({
-      output: function (styles, styleNodes) {
+    sass({
+      output(styles, styleNodes) {
         writeFileSync('public/bundle.css', styles)
       },
     }),
     babel({
         exclude: 'node_modules/**',
         plugins: ['inferno', '@babel/plugin-proposal-object-rest-spread'],
-    })
+    }),
+    copy({
+      "client/media": "public/media",
+      verbose: true
+  })
   ]
 
 rollup.rollup({
