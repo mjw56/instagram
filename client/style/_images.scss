@@ -1,0 +1,12 @@
+@mixin sprite() {
+    background-image: url('media/sprite.png');
+    background-repeat: no-repeat;
+}
+
+.logo {
+    @include sprite();
+    background-position: 0 -134px;
+    background-size: 429px 398px;
+    height: 35px;
+    width: 176px;
+}
