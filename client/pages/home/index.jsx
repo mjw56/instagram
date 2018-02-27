@@ -1,5 +1,4 @@
 import { render } from 'inferno';
-import Document from 'components/document';
 import Header from 'components/header';
 import PhotoGrid from 'components/photo-grid';
 
