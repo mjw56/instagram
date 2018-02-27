@@ -34,12 +34,12 @@ const plugins = [
   ]
 
 rollup.rollup({
-    input: 'client/pages/timeline/index.jsx',
+    input: 'client/pages/home/index.jsx',
     plugins
   }).then(bundle => {
     bundle.write({
       format: 'cjs',
-      file: 'build/pages/timeline.js'
+      file: 'build/pages/home.js'
     })
   })
   

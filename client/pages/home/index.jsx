@@ -5,19 +5,19 @@ import PhotoGrid from 'components/photo-grid';
 
 import './style.scss';
 
-export default function Timeline({ data = [] }) {
+export default function Home({ data = [] }) {
   return (
-    <Document title="Home" stylesheet="bundle">
+    <div>
       <Header />
-      <div className="timeline">
+      <div className="home">
         <PhotoGrid data={data} />
       </div>
-    </Document>
+    </div>
   );
 }
 
-Timeline.GraphQL = ({ accessToken }) => `
-  query TimelinePage {
+Home.GraphQL = ({ accessToken }) => `
+  query HomePage {
     root {
       users {
         media(token: "${accessToken}") {
