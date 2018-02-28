@@ -5,6 +5,7 @@ const babel = require('rollup-plugin-babel');
 const sass = require('rollup-plugin-sass');
 const copy = require('rollup-plugin-copy');
 const replace = require('rollup-plugin-replace');
+const uglify = require('rollup-plugin-uglify');
 const { writeFileSync } = require('fs');
 
 let includePathOptions = {
@@ -55,7 +56,8 @@ rollup.rollup({
     }),
     replace({
       'process.env.NODE_ENV': JSON.stringify( 'production' )
-    })
+    }),
+    uglify()
   )
 }).then(bundle => {
   bundle.write({
