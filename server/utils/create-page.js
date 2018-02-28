@@ -9,7 +9,7 @@ async function home({ component, accessToken }) {
     
     return renderPage(
         component, 
-        { title: 'Mini Instagram', jsFiles: [], cssFiles: ['bundle.css'] }, 
+        { title: 'Mini Instagram', jsFiles: ['index.js'], cssFiles: ['bundle.css'] }, 
         { data: root.users.media.data }
     );
 }

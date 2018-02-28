@@ -16,13 +16,13 @@ function renderPage(component, pageElements, props) {
                   ${InfernoServer.renderToString(createElement(component, props, null))}
               </div>
 
-              ${ (pageElements.jsFiles || []).map(fileName => (
-                  `<script src="${fileName}" />`
-              ))}
-
               ${ props && 
-                  `<script>var APP_DATA = ${JSON.stringify(props)};</script>`
+                `<script>var APP_DATA = ${JSON.stringify(props)};</script>`
               }
+
+              ${ (pageElements.jsFiles || []).map(fileName => (
+                  `<script src="${fileName}"></script>`
+              ))}
           </body>
       </html>
   `);
