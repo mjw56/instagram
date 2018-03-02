@@ -1,4 +1,5 @@
 const InfernoServer = require('inferno-server');
+const { StaticRouter } = require('inferno-router');
 const { createElement } = require('inferno-create-element');
 
 function renderPage(component, pageElements, props) {
@@ -13,7 +14,11 @@ function renderPage(component, pageElements, props) {
 
           <body>
               <div id="root">
-                  ${InfernoServer.renderToString(createElement(component, props, null))}
+                  ${InfernoServer.renderToString(
+                        createElement(StaticRouter, null,
+                            createElement(component, props, null)
+                        )
+                    )}
               </div>
 
               ${ props && 
