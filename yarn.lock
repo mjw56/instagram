@@ -1588,10 +1588,6 @@ inferno-shared@4.0.7:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/inferno-shared/-/inferno-shared-4.0.7.tgz#d6e16bf8b0886ac9b87f778ea8ec559e0360730b"
 
-inferno-vnode-flags@4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-4.0.4.tgz#ddf99e383ee6771cc9a22df684cbd41ebfdee24a"
-
 inferno-vnode-flags@4.0.7:
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/inferno-vnode-flags/-/inferno-vnode-flags-4.0.7.tgz#7667e0d6df421f59aa8189598b93ee5329455a08"
@@ -1602,13 +1598,6 @@ inferno@4.0.7:
   dependencies:
     inferno-shared "4.0.7"
     inferno-vnode-flags "4.0.7"
-    opencollective "^1.0.3"
-
-inferno@^4.0.2:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/inferno/-/inferno-4.0.4.tgz#db38098bc53ef64bc2cae9334ffb491e6fca722b"
-  dependencies:
-    inferno-vnode-flags "4.0.4"
     opencollective "^1.0.3"
 
 inflight@^1.0.4:
@@ -2719,9 +2708,9 @@ rollup-plugin-includepaths@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/rollup-plugin-includepaths/-/rollup-plugin-includepaths-0.2.2.tgz#4b688f220aba88c682e3846b653ddd2eb107f1ac"
 
-rollup-plugin-node-resolve@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.0.2.tgz#38babc12fd404cc2ba1ff68648fe43fa3ffee6b0"
+rollup-plugin-node-resolve@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-3.0.3.tgz#8f57b253edd00e5b0ad0aed7b7e9cf5982e98fa4"
   dependencies:
     builtin-modules "^1.1.0"
     is-module "^1.0.0"

@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const rollup = require('rollup');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const includePaths = require('rollup-plugin-includepaths');
+const commonJS = require('rollup-plugin-commonjs');
 const babel = require('rollup-plugin-babel');
 const sass = require('rollup-plugin-sass');
 const copy = require('rollup-plugin-copy');
@@ -16,7 +19,9 @@ let includePathOptions = {
 };
 
 const plugins = [
+    commonJS(),
     nodeResolve({
+      module: true,
       extensions: [ '.js', '.jsx' ]
     }),
     includePaths(includePathOptions),
@@ -55,9 +60,9 @@ rollup.rollup({
       plugins: ['inferno', '@babel/plugin-proposal-object-rest-spread'],
     }),
     replace({
-      'process.env.NODE_ENV': JSON.stringify( 'production' )
+      'process.env.NODE_ENV': JSON.stringify( 'development' )
     }),
-    uglify()
+    // uglify()
   )
 }).then(bundle => {
   bundle.write({

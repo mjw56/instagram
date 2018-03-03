@@ -4,14 +4,18 @@ const renderPage = require('./render-page');
 const schema = require('../../shared/graphql');
 const { graphql } = require('graphql');
 
-async function home({ component, accessToken }) {
+async function home({ component, accessToken, url }) {
     const { data: { root } } = await graphql(schema, component.GraphQL({ accessToken }));
     
-    return renderPage(
+    return renderPage({
         component, 
-        { title: 'Mini Instagram', jsFiles: ['index.js'], cssFiles: ['bundle.css'] }, 
-        { data: root.users.media.data }
-    );
+        pageElements: { 
+            title: 'Mini Instagram', 
+            jsFiles: ['index.js'], 
+            cssFiles: ['bundle.css'] 
+        }, 
+        props: { data: root.users.media.data, url },
+    });
 }
 
 module.exports = {
