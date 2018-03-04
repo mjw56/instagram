@@ -1,20 +1,14 @@
 import { render, Component } from 'inferno';
-import { Router, Route, Switch } from 'inferno-router';
-import Home from './pages/home';
-
-import createBrowserHistory from 'history/createBrowserHistory';
-
-const history = createBrowserHistory();
+import { BrowserRouter } from 'inferno-router';
+import routes from './routes';
 
 // APP_DATA is set on the server
 class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <Switch>
-          <Route exact path="/" component={Home}/>
-        </Switch>
-      </Router>
+      <BrowserRouter>
+        {routes}
+      </BrowserRouter>
     );
   }
 }

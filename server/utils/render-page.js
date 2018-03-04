@@ -13,13 +13,11 @@ function renderPage({ component, pageElements, props }) {
           </head>
 
           <body>
-              <div id="root">
-                  ${InfernoServer.renderToString(
-                        createElement(StaticRouter, { location: props.url },
-                            createElement(component, { data: props.data }, null)
-                        )
-                    )}
-              </div>
+              <div id="root">${InfernoServer.renderToString(
+                    createElement(StaticRouter, { location: props.url },
+                        createElement(component, { data: props.data }, null)
+                    )
+                )}</div>
 
               ${ props && 
                 `<script>var APP_DATA = ${JSON.stringify(props)};</script>`
