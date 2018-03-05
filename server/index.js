@@ -5,6 +5,7 @@ const app = express();
 const passport = require('passport');
 const session = require('express-session');
 const routes = require('./routes');
+const middleware = require('./middleware');
 
 const graphqlHTTP = require('express-graphql');
 const schema = require('../shared/graphql');
@@ -36,7 +37,6 @@ app.use(passport.session());
 
 app.use(morgan('combined'));
 
-app.get('/', routes.utils.ensureAuthenticated, routes.home);
 app.get('/login', routes.login);
 app.get('/logout', routes.logout);
 
@@ -57,5 +57,7 @@ app.post('/graphql', (req, res) => {
         graphiql: false,
     })(req, res), 500);
 });
+
+app.get('/*', middleware.auth, routes.spa);
 
 app.listen(process.env.PORT, () => console.log('app listening on port 3000'));

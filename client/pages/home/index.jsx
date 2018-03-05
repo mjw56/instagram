@@ -4,12 +4,12 @@ import PhotoGrid from 'components/photo-grid';
 
 import './style.scss';
 
-export default function Home({ data = [] }) {
+export default function Home({ initialData = [], ...props }) {
   return (
     <div>
       <Header />
       <div className="home">
-        <PhotoGrid data={data} />
+        <PhotoGrid data={initialData} />
       </div>
     </div>
   );

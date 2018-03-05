@@ -1,13 +1,11 @@
-const home = require('./home');
+const spa = require('./spa');
 const login = require('./login');
 const logout = require('./logout');
 const instagram = require('./instagram');
-const utils = require('./utils');
 
 module.exports = {
-    home,
+    spa,
     login,
     logout,
-    instagram,
-    utils
+    instagram
 };
