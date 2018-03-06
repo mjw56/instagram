@@ -82,10 +82,12 @@ rollup.rollup({
 
 rollup.rollup({
   input: 'client/index.jsx',
-  plugins: clientPlugins
+  plugins: clientPlugins,
+  experimentalCodeSplitting: true,
+  experimentalDynamicImport: true
 }).then(bundle => {
   bundle.write({
-    format: 'iife',
+    format: 'es',
     file: 'public/index.js'
   })
 });

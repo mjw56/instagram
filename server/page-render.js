@@ -16,7 +16,7 @@ function renderPage({ title, markup, jsFiles, cssFiles, pageData }) {
               }
 
               ${ (jsFiles || []).map(fileName => (
-                  `<script src="${fileName}"></script>`
+                  `<script type="module" src="${fileName}"></script>`
               ))}
           </body>
       </html>
