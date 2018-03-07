@@ -25,17 +25,40 @@ let includePathOptions = {
 const plugins = [
   commonJS(),
   nodeResolve({
+    jsnext: true,
     module: true,
     extensions: [ '.js', '.jsx' ]
   }),
   includePaths(includePathOptions),  
 ];
 
+
+const serverPlugins = plugins.concat(
+  sass({
+    output(styles, styleNodes) {
+      writeFileSync('public/bundle.css', styles)
+    },
+  }),
+  babel({
+    exclude: 'node_modules/**',
+    plugins: ['inferno', '@babel/plugin-proposal-object-rest-spread'],
+  }),
+  copy({
+    "client/media": "public/media",
+    verbose: true
+  })
+)
+
 let clientPlugins = plugins.concat(
   sass(),
   babel({
     exclude: 'node_modules/**',
-    plugins: ['inferno', '@babel/plugin-proposal-object-rest-spread'],
+    plugins: [
+      'inferno', 
+      '@babel/plugin-proposal-object-rest-spread',
+      '@babel/plugin-proposal-class-properties',
+      '@babel/plugin-syntax-dynamic-import'
+    ],
   }),
   replace({
     'process.env.NODE_ENV': JSON.stringify( 'development' )
@@ -58,21 +81,7 @@ if (isProduction) {
 
 rollup.rollup({
   input: 'client/pages/home/index.jsx',
-  plugins: plugins.concat(
-    sass({
-      output(styles, styleNodes) {
-        writeFileSync('public/bundle.css', styles)
-      },
-    }),
-    babel({
-      exclude: 'node_modules/**',
-      plugins: ['inferno', '@babel/plugin-proposal-object-rest-spread'],
-    }),
-    copy({
-      "client/media": "public/media",
-      verbose: true
-    })
-  )
+  plugins: serverPlugins
 }).then(bundle => {
   bundle.write({
     format: 'cjs',
@@ -81,14 +90,24 @@ rollup.rollup({
 });
 
 rollup.rollup({
-  input: 'client/index.jsx',
+  input: 'client/pages/profile/index.jsx',
+  plugins: serverPlugins
+}).then(bundle => {
+  bundle.write({
+    format: 'cjs',
+    file: 'build/pages/profile.js'
+  })
+});
+
+rollup.rollup({
+  input: ['client/index.jsx', 'client/pages/home/index.jsx', 'client/pages/profile/index.jsx'],
   plugins: clientPlugins,
   experimentalCodeSplitting: true,
   experimentalDynamicImport: true
 }).then(bundle => {
   bundle.write({
     format: 'es',
-    file: 'public/index.js'
+    dir: 'public'
   })
 });
   

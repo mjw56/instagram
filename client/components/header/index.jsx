@@ -1,4 +1,5 @@
 import { render } from 'inferno';
+import { Link } from 'inferno-router';
 
 import './style.scss';
 

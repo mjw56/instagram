@@ -6,6 +6,8 @@ function renderPage({ title, markup, jsFiles, cssFiles, pageData }) {
               ${ (cssFiles || []).map(fileName => (
                 `<link rel="stylesheet" href="/${fileName}" />`
               ))}
+
+              <link rel="icon" sizes="192x192" href="favicon.png">
           </head>
 
           <body>

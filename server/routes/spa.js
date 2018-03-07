@@ -3,7 +3,7 @@
 */
 module.exports = async (req, res) => {
   const { matchPath } = require('inferno-router');
-  const routes = require('../../shared/routes')({ isServer: true });
+  const routes = require('../../shared/routes.server');
   const fetcher = require('../fetcher');
 
   const route = routes.find(route => route.path === req.url);
@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
   );
 
   const InfernoServer = require('inferno-server');
-  const { StaticRouter, Route } = require('inferno-router');
+  const { StaticRouter, Switch, Route } = require('inferno-router');
   const { createElement } = require('inferno-create-element');
   
   const { title, jsFiles, cssFiles, dataFn } = require('../page-config')[req.url];
@@ -23,6 +23,7 @@ module.exports = async (req, res) => {
 
   const markup = InfernoServer.renderToString(
       createElement(StaticRouter, { location: req.url },
+        createElement(Switch, null,
           ...routes.map(route => (
               createElement(
                   Route, 
@@ -38,6 +39,7 @@ module.exports = async (req, res) => {
                   null
               )
           ))
+        )
       )
   );
 
