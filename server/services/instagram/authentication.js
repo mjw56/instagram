@@ -6,7 +6,7 @@ async function authenticate(code) {
     formData.append('client_id', process.env.INSTAGRAM_CLIENT_ID);
     formData.append('client_secret', process.env.INSTAGRAM_CLIENT_SECRET);
     formData.append('grant_type', 'authorization_code');
-    formData.append('redirect_uri', 'http://localhost:3000/auth/instagram/callback');
+    formData.append('redirect_uri', `http://localhost:${process.env.PORT}/auth/instagram/callback`);
     formData.append('code', code);
 
     let url = 'https://api.instagram.com/oauth/access_token';

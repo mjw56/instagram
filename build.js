@@ -61,7 +61,7 @@ let clientPlugins = plugins.concat(
     ],
   }),
   replace({
-    'process.env.NODE_ENV': JSON.stringify( 'development' )
+    'process.env.NODE_ENV': JSON.stringify( 'production' )
   })
 );
 

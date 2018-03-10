@@ -60,4 +60,4 @@ app.post('/graphql', (req, res) => {
 
 app.get('/*', middleware.auth, routes.spa);
 
-app.listen(process.env.PORT, () => console.log('app listening on port 3000'));
+app.listen(process.env.PORT, () => console.log(`app listening on port ${process.env.PORT}`));
