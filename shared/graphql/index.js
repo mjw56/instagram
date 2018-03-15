@@ -1,6 +1,6 @@
-const { GraphQLSchema } = require('graphql');
-const QueryType = require('./schema');
+const { GraphQLSchema } = require("graphql");
+const QueryType = require("./schema");
 
 module.exports = new GraphQLSchema({
-  query: QueryType,
+    query: QueryType
 });

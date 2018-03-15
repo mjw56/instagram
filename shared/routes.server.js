@@ -1,3 +1,6 @@
-const routes = require('./routes.master');
+const routes = require("./routes.master");
 
-module.exports = routes.map(route => ({ ...route, component: require(`../build/${route.component}`) }));
+module.exports = routes.map(route => ({
+    ...route,
+    component: require(`../build/${route.component}`)
+}));
