@@ -1,9 +1,9 @@
-function renderPage({ title, markup, jsFiles, cssFiles, pageData }) {  
+function renderPage({ title, markup, jsFiles = [], cssFiles = [], pageData }) {  
   return (`
       <html>
           <head>
               <title>${title}</title>
-              ${ (cssFiles || []).map(fileName => (
+              ${ cssFiles.map(fileName => (
                 `<link rel="stylesheet" href="/${fileName}" />`
               ))}
 
@@ -17,7 +17,7 @@ function renderPage({ title, markup, jsFiles, cssFiles, pageData }) {
                 `<script>var APP_DATA = ${JSON.stringify(pageData)};</script>`
               }
 
-              ${ (jsFiles || []).map(fileName => (
+              ${ jsFiles.map(fileName => (
                   `<script type="module" src="${fileName}"></script>`
               ))}
           </body>
